@@ -1,6 +1,10 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+# from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark.functions import col
+
+cnx = st.connection("Snowflake")
+session = cnx.session()
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
@@ -12,7 +16,7 @@ st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
 #     """
 # )
 
-# import streamlit as st
+import streamlit as st
 
 name_on_order = st.text_input("Name on Smoothie:")
 st.write("The name on your Smoothie wil be:", name_on_order)
@@ -27,7 +31,7 @@ st.write("The name on your Smoothie wil be:", name_on_order)
 # st.write("Your favorite fruit is:", option)
 
 
-from snowflake.snowpark.functions import col
+# from snowflake.snowpark.functions import col
 
 
 session = get_active_session()
@@ -68,4 +72,16 @@ if time_to_insert:
 # if ingredients_string:
 #     session.sql(my_insert_stmt).collect()
     st.success('Your Smoothie is ordered!', icon="✅")
+
+
+
+
+
+
+
+
+
+
+
+
 
