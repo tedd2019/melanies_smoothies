@@ -5,8 +5,8 @@ from snowflake.snowpark.functions import col
 
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response.json())
-
+# st.text(fruityvice_response.json())
+fv_df = st.dataframe(data=frutiyvice_response.json(), use_container_width=True)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
